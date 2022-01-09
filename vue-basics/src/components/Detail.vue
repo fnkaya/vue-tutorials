@@ -1,17 +1,16 @@
 <template>
-  <p>{{ id }}</p>
+  <div>
+    <p>id from prop: {{ id }}</p>
+    <p>id from route: {{ this.$route.params.id }}</p>
+  </div>
 </template>
-
+np
 <script>
 export default {
   name: "Detail",
   props: {
     id: String
   },
-  mounted() {
-    console.log(this.$router)
-    console.log(this.$route)
-  }
 }
 </script>
 

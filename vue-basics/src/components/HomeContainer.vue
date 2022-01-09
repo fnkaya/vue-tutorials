@@ -1,10 +1,13 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <Student v-for="student in students"
+  <div class="container">
+    <div>
+      <span>Min score: </span>
+      <input type="text" class="score-input" v-model="passScore"/>
+    </div>
+    <Student v-for="student in filteredStudents"
              :key="student.id"
              :data="student"
-             @alert="alert"
+             @showScore="showScore"
     />
   </div>
 </template>
@@ -13,11 +16,8 @@
 import Student from "@/components/Student";
 
 export default {
-  name: 'HelloWorld',
+  name: 'HomeContainer',
   components: {Student},
-  props: {
-    msg: String
-  },
   data() {
     return {
       students: [
@@ -30,31 +30,76 @@ export default {
         {id: 7, name: "student7", retakeCount: 1, score: 32, passed: false},
         {id: 8, name: "student8", retakeCount: 1, score: 15, passed: false},
       ],
-      passScore: 50,
+      passScore: 0,
     }
   },
   methods: {
-    alert: (data) => {
-      window.alert(data.score);
+    showScore: (score) => {
+      window.alert(score);
     }
   },
   computed: {
     filteredStudents() {
-      return this.students.filter(student => student.passed && student.score >= this.passScore);
+      return this.students.filter(student => student.score >= this.passScore);
     }
   },
   watch: {
-    /*passScore(next, prev) {
-      console.log("Pass score changed. ", prev, " => ", next);
-    }*/
+    passScore(next, prev) {
+      const alertText = `Pass score changing... Previous value: ${prev}, Next value: ${next}`
+      window.alert(alertText);
+    }
+  },
+  beforeCreated() {
+    console.log("instance has been initialized...")
+  },
+  created() {
+    console.log("instance is created...")
+  },
+  beforeMount() {
+    console.log("mounted beginning...")
   },
   mounted() {
-    /*setInterval(() => this.passScore = 70, 2000);*/
+    console.log("instance has been mounted...")
   },
+  beforeUpdate() {
+    console.log("some data changed...")
+  },
+  updated() {
+    console.log("DOM re-rendered...")
+  },
+  activated() {
+    console.log("component is activated...")
+  },
+  deactivated() {
+    console.log("component is deactivated...")
+  },
+  beforeUnmount() {
+    console.log("called component instance unmounted...")
+  },
+  unmounted() {
+    console.log("instance has been unmounted...")
+  },
+  //errorCaptured(err, vm, info) {
+    // err: error trace
+    // vm: component in which error occurred
+    // info: vue specific error information such as lifecycle hooks, events etc.
+    // return false to stop propagation of errors further to parent or global error
+  //}
 }
 </script>
 
 
 <style scoped>
-
+.container {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  margin: 64px auto;
+}
+.score-input {
+  padding: 8px;
+  width: 20px;
+  margin: 16px auto;
+  text-align: center;
+}
 </style>
