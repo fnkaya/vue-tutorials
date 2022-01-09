@@ -21,7 +21,7 @@ export default {
   methods: {
     showScore() {
       this.$emit('showScore', this.data.score)
-      }
+    }
   }
 }
 </script>
