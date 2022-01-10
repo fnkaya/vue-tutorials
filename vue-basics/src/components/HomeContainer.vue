@@ -7,7 +7,6 @@
     <Student v-for="student in filteredStudents"
              :key="student.id"
              :data="student"
-             @showScore="showScore"
     />
   </div>
 </template>
@@ -33,51 +32,40 @@ export default {
       passScore: 0,
     }
   },
-  methods: {
-    showScore: (score) => {
-      window.alert(score);
-    }
-  },
   computed: {
     filteredStudents() {
       return this.students.filter(student => student.score >= this.passScore);
     }
   },
-  watch: {
-    passScore(next, prev) {
-      const alertText = `Pass score changing... Previous value: ${prev}, Next value: ${next}`
-      window.alert(alertText);
-    }
-  },
   beforeCreated() {
-    console.log("instance has been initialized...")
+    console.log("instance has been initialized...", this)
   },
   created() {
-    console.log("instance is created...")
+    console.log("instance is created...", this)
   },
   beforeMount() {
-    console.log("mounted beginning...")
+    console.log("mounted beginning...", this)
   },
   mounted() {
-    console.log("instance has been mounted...")
+    console.log("instance has been mounted...", this)
   },
   beforeUpdate() {
-    console.log("some data changed...")
+    console.log("some data changed...", this)
   },
   updated() {
-    console.log("DOM re-rendered...")
+    console.log("DOM re-rendered...", this)
   },
   activated() {
-    console.log("component is activated...")
+    console.log("component is activated...", this)
   },
   deactivated() {
-    console.log("component is deactivated...")
+    console.log("component is deactivated...", this)
   },
   beforeUnmount() {
-    console.log("called component instance unmounted...")
+    console.log("called component instance unmounted...", this)
   },
   unmounted() {
-    console.log("instance has been unmounted...")
+    console.log("instance has been unmounted...", this)
   },
   //errorCaptured(err, vm, info) {
     // err: error trace

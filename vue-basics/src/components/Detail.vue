@@ -8,9 +8,7 @@ np
 <script>
 export default {
   name: "Detail",
-  props: {
-    id: String
-  },
+  props: ['id']
 }
 </script>
 

@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from "vue-router";
+import VueToast from 'vue-toast-notification';
 import HomeContainer from "@/components/HomeContainer";
 import Detail from "@/components/Detail";
+import 'vue-toast-notification/dist/theme-sugar.css';
 
 Vue.config.productionTip = false
 
@@ -18,6 +20,7 @@ const router = new VueRouter({
 });
 
 Vue.use(VueRouter);
+Vue.use(VueToast, {position: "top-left", queue: true});
 
 new Vue({
   router,

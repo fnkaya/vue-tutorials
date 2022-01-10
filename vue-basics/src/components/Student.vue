@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     showScore() {
-      this.$emit('showScore', this.data.score)
+      this.$toast.info(`${this.data.name}'s score is ${this.data.score}`)
     }
   }
 }
