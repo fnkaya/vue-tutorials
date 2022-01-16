@@ -37,35 +37,44 @@ export default {
 <style scoped>
 .container {
   width: 75vw;
-  padding: 16px 32px;
+  padding: 8px 16px;
+  margin: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #e6e9f4;
+  border-radius: 8px;
 }
 .search-box {
-  padding: 16px;
-  height: 30px;
-  width: 250px;
-  border: none;
-  border-bottom: 1px solid dimgray;
-  outline: none;
-}
-.favorites-count {
   padding: 8px;
-  font-weight: 800;
-  cursor: pointer;
+  height: 30px;
+  width: 50%;
+  border: none;
+  background-color: transparent;
+  border-left: 3px solid dimgray;
+  border-radius: 4px;
+  outline: none;
+  transition: border .25s, border-radius .25s;
+}
+.search-box:focus {
+  border: 2px solid dimgray;
+  border-radius: 16px;
 }
 .favorites-count {
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  border-radius: 16px;
+  border-right: 3px solid lightcoral;
+  border-radius: 4px;
   color: lightcoral;
-  transition: color 1s, background-color 1s;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color .5s, background-color .5s, border-radius .5s;
 }
 .favorites-count:hover {
   color: white;
   background-color: lightcoral;
+  border-radius: 16px;
 }
 </style>

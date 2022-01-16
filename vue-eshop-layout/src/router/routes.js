@@ -1,21 +1,21 @@
-import ProductListingPage from "@/views/ProductListingPage";
-import FavoritesPage from "@/views/FavoritesPage";
-import ProductDetailPage from "@/views/ProductDetailPage";
+import Home from "@/views/Home";
+import FavoriteList from "@/views/FavoriteList";
+import ProductDetail from "@/views/ProductDetail";
 
 export const HOME = {
     name: 'home',
     path: '/',
-    component: ProductListingPage,
+    component: Home,
 };
 
 export const PRODUCT_DETAILS = {
     name: 'productDetails',
     path: '/product/:productId',
-    component: ProductDetailPage,
+    component: ProductDetail,
 };
 
 export const FAVORITES = {
     name: 'favorites',
     path: '/favorites/:userId',
-    component: FavoritesPage,
+    component: FavoriteList,
 };

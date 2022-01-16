@@ -71,7 +71,7 @@ export default {
 <style scoped>
 .product-container {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  gap: 16px;
 }
 </style>

@@ -2,8 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from "vue-router";
 import VueToast from 'vue-toast-notification';
-import HomeContainer from "@/components/HomeContainer";
-import Detail from "@/components/Detail";
+import HomeContainer from "@/components/Layout";
 import 'vue-toast-notification/dist/theme-sugar.css';
 
 Vue.config.productionTip = false
@@ -14,7 +13,6 @@ const router = new VueRouter({
   mode: "history",
   routes: [
     {path: "/", component: HomeContainer},
-    {name: "studentDetail", path: "/student/:id", component: Detail, props: true},
     {path: "*", component: PageNotFound},
   ]
 });

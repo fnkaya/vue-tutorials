@@ -5,8 +5,8 @@
       <font-awesome-icon icon="heart" @click="addToFavorites"/>
     </span>
     <img :src="data.image" :alt="data.description">
-    <span>{{ data.name }}</span>
-    <span>{{ data.description }}</span>
+    <span class="product-title">{{ data.name }}</span>
+    <span class="product-description">{{ data.description }}</span>
     <router-link :to="{name: 'productDetails', params: { productId: data.id }}" >
       Details
     </router-link>
@@ -34,13 +34,18 @@ export default {
 </script>
 
 <style scoped>
-.product-card{
+.product-card {
   padding: 8px;
   width: 200px;
   display: flex;
   flex-direction: column;
   gap: 8px;
   position: relative;
+  cursor: pointer;
+  transition: transform .5s;
+}
+.product-card:hover {
+  transform: scale(1.15);
 }
 .favorite-button {
   position: absolute;
@@ -52,13 +57,25 @@ export default {
 .favorite-button:hover {
   font-size: 1.5em;
 }
+.product-title {
+  font-weight: bold;
+}
+.product-description {
+  opacity: .5;
+}
 .product-card > a {
   padding: 8px 16px;
-  border: none;
   border-radius: 8px;
-  color: white;
-  background-color: lightskyblue;
+  color: lightskyblue;
+  background-color: white;
+  border: 1px solid lightskyblue;
   text-decoration: none;
   margin-top: auto;
+  transition: background-color .5s, coolor .5s, border .5s;
+}
+.product-card:hover > a {
+  background-color: lightskyblue;
+  color: white;
+  border: none;
 }
 </style>

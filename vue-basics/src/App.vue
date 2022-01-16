@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div id="app">
     <router-view></router-view>
   </div>
@@ -16,5 +16,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  box-sizing: border-box;
 }
 </style>
