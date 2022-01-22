@@ -1,0 +1,28 @@
+:root {
+    --color-background: #eceff1;
+    --color-background-light: #ffffff ;
+    --color-background-dark: #babdbe;
+    --color-text: #455a64;
+    --color-text-light: #718792;
+    --color-text-dark: #1c313a;
+    --color-border: #616161;
+    --color-button-primary: #bbdefb;
+    --color-button-secondary: #ff1744;
+    --color-hover: #eeffff;
+    --color-active: #8aacc8;
+
+    --color-white: #ffffff;
+    --color-black: #000000;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background-color: var(--color-background);
+}
