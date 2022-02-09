@@ -75,10 +75,11 @@ describe('Counter.vue', () => {
         })
 
         it('should count value be 1 when increase action invoked 2 times and decrease action 1 time', () => {
-            mutations.addToCount(state, 1)
-            mutations.addToCount(state, 1)
-            mutations.addToCount(state, -1)
-            expect(state.count).toEqual(1)
+            const mockState = {...state}
+            mutations.addToCount(mockState, 1)
+            mutations.addToCount(mockState, 1)
+            mutations.addToCount(mockState, -1)
+            expect(mockState.count).toEqual(1)
         })
     })
 
@@ -100,8 +101,8 @@ describe('Counter.vue', () => {
         return shallowMount(Counter, {
             localVue,
             store: new Vuex.Store({
-                state,
-                getters
+                state: {...state},
+                getters: {...getters}
             })
         })
     }
